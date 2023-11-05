@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # a bash script that pings an IP address passed as an argument
 
-if [ "$1" -eq "" ]; then
+if [ "$1" == "" ]; then
 	echo "Usage: 5-is_the_host_on_the_network {IP ADDRESS}"
 else
 	ping -c5 "$1"

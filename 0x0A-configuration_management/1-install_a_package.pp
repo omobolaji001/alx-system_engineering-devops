@@ -1,7 +1,20 @@
 # Install an especific version of flask (2.1.0)
-python_packages = ['python 3.8.10', 'flask 2.1.0', 'werkzeug 2.1.1']
+package { 'python':
+  ensure  => 'present',
+}
 
-package { $python_packages:
-  ensure   => 'installed',
+package { 'python3-pip':
+  ensure  => present,
+}
+
+package { 'flask':
+  ensure   => '2.1.0',
   provider => 'pip3',
+  require  => Package['python3-pip'],
+}
+
+package { 'werkzeug':
+  ensure   => '2.1.1',
+  provider => 'pip3',
+  require  => Package['python3-pip'],
 }

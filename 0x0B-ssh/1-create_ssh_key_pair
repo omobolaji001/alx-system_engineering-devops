@@ -1,1 +1,3 @@
-ssh-keygen -t rsa -b 4096 -f ./school -N "betty"
+#!/usr/bin/env bash
+# Bash script that generates rsa key pair of 4096 bytes with a paraphrase
+ssh-keygen -t rsa -b 4096 -f school -N "betty"

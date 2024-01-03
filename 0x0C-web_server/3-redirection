@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# a bash script that installs nginx web server
+# returns a page that contains the string "Hello World!"
+# configures nginx redirection
+sudo apt-get update
+sudo apt-get -y install nginx
+
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/omobolaji001 permanent;"
+sudo sed -i "s/server_name _;/$replacement/" /etc/nginx/sites-available/default
+
+sudo service nginx restart

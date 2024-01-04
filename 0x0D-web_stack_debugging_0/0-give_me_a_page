@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# bash script that runs apache2 on designated server
+service apache2 start

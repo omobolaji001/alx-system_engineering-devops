@@ -18,7 +18,7 @@ if __name__ == '__main__':
             emp_username = emp_res.json().get("username")
         else:
             print(f"Request for users failed with the status code:\
-                  {emp_res.status_code}")
+{emp_res.status_code}")
     except requests.exceptions.RequestException as e:
         print(f"An error occured: {e}")
 
@@ -28,7 +28,7 @@ if __name__ == '__main__':
             tasks = todo_res.json()
         else:
             print(f"Request for todo failed with the status code:\
-                  {todo_res.status_code}")
+{todo_res.status_code}")
     except requests.exceptions.RequestException as e:
         print(f"An error occured: {e}")
 

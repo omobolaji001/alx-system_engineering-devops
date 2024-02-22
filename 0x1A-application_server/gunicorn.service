@@ -1,3 +1,4 @@
+# a systemd script which starts a Gunicorn process to serve `web_dynamic/2-hbnb.py`
 [Unit]
 Description = HBNB
 After = network.target

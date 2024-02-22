@@ -1,11 +1,13 @@
-# A puppet manifest that resets the amount of traffic an Nginx server can handle
+# A puppet manifest that resets the amount of traffic an Nginx server can handle.
 
-exec { 'fix nginx limit':
-  command => 'sed -i "s/15/16384/" /etc/default/nginx',
-  path    => ['/bin', '/usr/bin'],
-}
+# Increase the ULIMIT of the default file
+exec { 'fix--for-nginx':
+  command => 'sed -i "s/15/4096/" /etc/default/nginx',
+  path    => '/usr/local/bin/:/bin/'
+} ->
 
-exec { 'restart nginx':
-  command => 'service nginx restart',
-  path    => ['/bin', '/usr/bin'],
+# Restart Nginx
+exec { 'nginx-restart':
+  command => 'nginx restart',
+  path    => '/etc/init.d/'
 }
